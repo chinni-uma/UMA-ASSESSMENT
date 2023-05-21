@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Responsive Web Application</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .page {
+      height: 100vh;
+      display: flex;
+       background:linear-gradient(grey);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      margin-bottom: 20px;
+      
+    }
+
+    h1{
+
+   color:darkblue;
+   font-family:sans-serif;
+   font-size:50px;
+   line-height:1.3;
+   width:100%;
+   padding:30px;
+   text-align: center;
+
+    }
+
+    .page:nth-child(odd) {
+      background-color: #f1f1f1;
+    }
+
+    .page:nth-child(even) {
+      background-color: #fff;
+    }
+
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .card {
+      width: 300px;
+      padding: 20px;
+      margin: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+      background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+    
+    }
+h3,p{
+  font-family:sans-serif;
+  color:white;
+}
+ .card img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>THIS IS PAGE 1</h1>
+  </div>
+<hr>
+  <div class="page">
+    <div class="content">
+      <div class="card">
+        <img src="meta.jpeg" alt="Card 1">
+        <h3>MARK</h3>
+        <p><strong>JUN-1 to JUN-15</strong> </p>
+      </div>
+      
+      <div class="card">
+        <img src="google.jpeg" alt="Card 2">
+        <h3>ELON </h3>
+        <p><strong>MAY-1 to MAY 7</strong></p>
+      </div>
+      
+      <div class="card">
+        <img src="facebook.jpeg" alt="Card 3">
+        <h3>SUNDAR</h3>
+        <p><strong>AUG-1 to AUG-5</strong></p>
+      </div>
+    </div>
+  </div>
+<hr>
+  <div class="page">
+    <h1>THIS IS PAGE 3</h1>
+  </div>
+
+  <script>
+    // Scroll to next page on mousewheel event
+    const pages = document.querySelectorAll('.page');
+    let currentPage = 0;
+
+    function scrollToNextPage(event) {
+      event.preventDefault();
+      currentPage = (currentPage + 1) % pages.length;
+      pages[currentPage].scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.addEventListener('mousewheel', scrollToNextPage, { passive: false });
+    document.addEventListener('DOMMouseScroll', scrollToNextPage, { passive: false });
+  </script>
+</body>
+</html>
